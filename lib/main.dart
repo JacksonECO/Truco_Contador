@@ -32,88 +32,97 @@ class _HomeState extends State<Home> {
         DeviceOrientation.landscapeLeft,
     ]);
   }
-
-  int tam= 845;
-  Image _imageA(){
-
+  Image _imageA(double width,double height){
       if (_timeA == 0) {
         return Image.asset(
           "images/BatA0.jpg",
-          fit: BoxFit.fitWidth,
-          width: tam/2,
+          fit: BoxFit.fitHeight,
+          width: width/2,
+          height: height,
         );
       } else if(_timeA == 2) {
         return Image.asset(
           "images/BatA2.jpg",
-          fit: BoxFit.cover,
-          width: tam/2,
+          fit: BoxFit.fitHeight,
+          width: width/2,
+          height: height,
         );
       } else if(_timeA == 4) {
         return Image.asset(
           "images/BatA4.jpg",
-          fit: BoxFit.cover,
-          width: tam/2,
+          fit: BoxFit.fitHeight,
+          width: width/2,
+          height: height,
         );
       } else if(_timeA == 6) {
         return Image.asset(
           "images/BatA6.jpg",
-          fit: BoxFit.cover,
-          width: tam/2,
+          fit: BoxFit.fitHeight,
+          width: width/2,
+          height: height,
         );
       } else if(_timeA == 8) {
         return Image.asset(
           "images/BatA8.jpg",
-          fit: BoxFit.cover,
-          width: tam/2,
+          fit: BoxFit.fitHeight,
+          width: width/2,
+          height: height,
         );
       }else{
           return Image.asset(
             "images/BatA10.jpg",
-            fit: BoxFit.cover,
-            width: tam/2,
+            fit: BoxFit.fitHeight,
+            width: width/2,
+            height: height,
           );
 
       }
     
   }
 
-  Image _imageB(){
-
+  Image _imageB(double width,double height){
     if (_timeB == 0) {
       return Image.asset(
         "images/BatB0.jpg",
-        fit: BoxFit.fitWidth,
-        width: tam/2,
+        fit: BoxFit.fitHeight,
+        width: width/2,
+        height: height,
+
       );
     } else if(_timeB == 2) {
       return Image.asset(
         "images/BatB2.jpg",
-        fit: BoxFit.cover,
-        width: tam/2,
+        fit: BoxFit.fitHeight,
+        width: width/2,
+        height: height,
       );
     } else if(_timeB == 4) {
       return Image.asset(
         "images/BatB4.jpg",
-        fit: BoxFit.cover,
-        width: tam/2,
+        fit: BoxFit.fitHeight,
+        width: width/2,
+        height: height,
       );
     } else if(_timeB == 6) {
       return Image.asset(
         "images/BatB6.jpg",
-        fit: BoxFit.cover,
-        width: tam/2,
+        fit: BoxFit.fitHeight,
+        width: width/2,
+        height: height,
       );
     } else if(_timeB == 8) {
       return Image.asset(
         "images/BatB8.jpg",
-        fit: BoxFit.cover,
-        width: tam/2,
+        fit: BoxFit.fitHeight,
+        width: width/2,
+        height: height,
       );
     }else{
       return Image.asset(
         "images/BatB10.jpg",
-        fit: BoxFit.cover,
-        width: tam/2,
+        fit: BoxFit.fitHeight,
+        width: width/2,
+        height: height,
       );
 
     }
@@ -207,14 +216,16 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    SystemChrome.setEnabledSystemUIOverlays([]);
     return Stack(
       children: <Widget>[
 
         Row(
           children: <Widget>[
-            _imageA(),
-            _imageB(),
+            _imageA(width,height),
+            _imageB(width,height),
           ],),
 
         Column(
